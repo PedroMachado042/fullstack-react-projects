@@ -5,105 +5,80 @@ import User from "../models/user.model.js";
 config();
 
 const seedUsers = [
-  // Female Users
+  // Female Characters
   {
-    email: "emma.thompson@example.com",
-    fullName: "Emma Thompson",
+    email: "annabeth.chase@camp.com",
+    fullName: "Annabeth Chase",
     password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/1.jpg",
+    profilePic: "https://i.pinimg.com/564x/8d/08/19/8d0819f0851186058e2d75fa8658110c.jpg",
   },
   {
-    email: "olivia.miller@example.com",
-    fullName: "Olivia Miller",
+    email: "rachel.dare@camp.com",
+    fullName: "Rachel Elizabeth Dare",
     password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/2.jpg",
+    profilePic: "https://cdn.rickriordan.com/wp-content/uploads/2016/04/11230308/RachelDare-299x416.jpg",
   },
   {
-    email: "sophia.davis@example.com",
-    fullName: "Sophia Davis",
+    email: "reyna.ramirez@camp.com",
+    fullName: "Reyna Ramirez-Arellano",
     password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/3.jpg",
+    profilePic: "https://cdn.rickriordan.com/wp-content/uploads/2016/04/11230306/ReynaRamirezArellano.jpg",
   },
   {
-    email: "ava.wilson@example.com",
-    fullName: "Ava Wilson",
+    email: "calypso.ogygia@camp.com",
+    fullName: "Calypso",
     password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/4.jpg",
+    profilePic: "https://i.quotev.com/5ivx5o56aaaa.jpg",
   },
   {
-    email: "isabella.brown@example.com",
-    fullName: "Isabella Brown",
+    email: "bianca.diangelo@camp.com",
+    fullName: "Bianca di Angelo",
     password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/5.jpg",
-  },
-  {
-    email: "mia.johnson@example.com",
-    fullName: "Mia Johnson",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
-  {
-    email: "charlotte.williams@example.com",
-    fullName: "Charlotte Williams",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/7.jpg",
-  },
-  {
-    email: "amelia.garcia@example.com",
-    fullName: "Amelia Garcia",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/8.jpg",
+    profilePic: "https://pm1.aminoapps.com/6502/28220d8f09157afeb7caee49c9d2950afd66e55e_hq.jpg",
   },
 
-  // Male Users
+  // Male Characters
   {
-    email: "james.anderson@example.com",
-    fullName: "James Anderson",
+    email: "percy.jackson@camp.com",
+    fullName: "Percy Jackson",
     password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/men/1.jpg",
+    profilePic: "https://preview.redd.it/pjo-the-most-iconic-artwork-of-percy-and-annabeth-by-viria-v0-1yxvo34burye1.jpg?width=640&crop=smart&auto=webp&s=451ab999b8490d79c53bccd83fef6c25d3e7c131",
   },
   {
-    email: "william.clark@example.com",
-    fullName: "William Clark",
+    email: "nico.diangelo@camp.com",
+    fullName: "Nico di Angelo",
     password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/men/2.jpg",
+    profilePic: "https://pbs.twimg.com/profile_images/1444465540026679301/rmVA3xrg_400x400.jpg",
   },
   {
-    email: "benjamin.taylor@example.com",
-    fullName: "Benjamin Taylor",
+    email: "leo.valdez@camp.com",
+    fullName: "Leo Valdez",
     password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/men/3.jpg",
+    profilePic: "https://pm1.aminoapps.com/6473/654fa17f4bc1df6824e23f15d472d133bc4c6899_hq.jpg",
   },
   {
-    email: "lucas.moore@example.com",
-    fullName: "Lucas Moore",
+    email: "jason.grace@camp.com",
+    fullName: "Jason Grace",
     password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/men/4.jpg",
+    profilePic: "https://assets.change.org/photos/5/uh/bs/XMuHBSVJIIcJOvR-1600x900-noPad.jpg?1616496201",
   },
   {
-    email: "henry.jackson@example.com",
-    fullName: "Henry Jackson",
+    email: "frank.zhang@camp.com",
+    fullName: "Frank Zhang",
     password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/men/5.jpg",
+    profilePic: "https://cdn.rickriordan.com/wp-content/uploads/2016/04/11230317/FrankZhang.jpg",
   },
   {
-    email: "alexander.martin@example.com",
-    fullName: "Alexander Martin",
+    email: "will.solace@camp.com",
+    fullName: "Will Solace",
     password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/men/6.jpg",
-  },
-  {
-    email: "daniel.rodriguez@example.com",
-    fullName: "Daniel Rodriguez",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/men/7.jpg",
+    profilePic: "https://i.pinimg.com/736x/e1/4d/d9/e14dd9e119cb895159431607124362b4.jpg",
   },
 ];
 
 const seedDatabase = async () => {
   try {
     await connectDB();
-
     await User.insertMany(seedUsers);
     console.log("Database seeded successfully");
   } catch (error) {
