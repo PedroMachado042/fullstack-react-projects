@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "seed:songs": "node src/seeds/songs.js",
+    "seed:albums": "node src/seeds/albums.js"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +21,7 @@
     "express": "^5.1.0",
     "express-fileupload": "^1.5.2",
     "mongoose": "^9.0.0",
+    "node-cron": "^4.2.1",
     "socket.io": "^4.8.1"
   },
   "devDependencies": {

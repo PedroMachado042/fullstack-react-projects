@@ -5,7 +5,7 @@ import { Album } from "../models/album.model.js";
 export const getStats = async (req, res, next) => {
   try {
     const [totalSongs, totalUsers, totalAlbums, uniqueArtists] =
-      await Promisse.all([
+      await Promise.all([
         Song.countDocuments(),
         User.countDocuments(),
         Album.countDocuments(),
@@ -19,7 +19,7 @@ export const getStats = async (req, res, next) => {
           },
           {
             $group: {
-              _id: $artist,
+              _id: "$artist",
             },
           },
           {
