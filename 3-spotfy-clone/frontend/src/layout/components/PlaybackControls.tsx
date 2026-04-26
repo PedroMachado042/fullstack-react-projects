@@ -24,7 +24,7 @@ const formatTime = (seconds: number) => {
 const PlaybackControls = () => {
   const { currentSong, isPlaying, playNext, playPrevious, togglePlay } =
     usePlayerStore();
-  const [volume, setVolume] = useState(75);
+  const [volume, setVolume] = useState(15);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -33,6 +33,7 @@ const PlaybackControls = () => {
     audioRef.current = document.querySelector("audio");
     const audio = audioRef.current;
     if (!audio) return;
+    audio.volume = volume / 100;
 
     const updateTime = () => setCurrentTime(audio.currentTime);
     const updateDuration = () => setDuration(audio.duration);
@@ -180,7 +181,7 @@ const PlaybackControls = () => {
 
             <Slider
               value={[volume]}
-              max={100}
+              max={50}
               step={1}
               className="w-24 hover:cursor-pointer"
               onValueChange={(value) => {
