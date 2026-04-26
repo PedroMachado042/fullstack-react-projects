@@ -11,6 +11,7 @@ const SONGS_DIR = resolve(__dirname, "../../../frontend/public/songs");
 
 config();
 
+const albumNames = ["Do Rock", "Chilling", "Nacionais", "Uplifting"];
 const seedDatabase = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI);
@@ -38,11 +39,10 @@ const seedDatabase = async () => {
             allFiles.map(({ file, folder }) => {
                 const name = file.replace(".mp3", "");
                 const [title, artist] = name.split(" - ");
-                console.log(`/cover-images/${folder}/${title}.jpg`);
                 return {
                     title,
                     artist,
-                    imageUrl: `/cover-images/1/Hero.jpg`,
+                    imageUrl: `/cover-images/${folder}/${title}.jpg`,
                     audioUrl: `/songs/${folder}/${file}`,
                     plays: Math.floor(Math.random() * 5000),
                     duration: 40,
@@ -52,16 +52,16 @@ const seedDatabase = async () => {
 
         // Create albums with references to song IDs — um álbum por pasta
         let songIndex = 0;
-        const albums = filesByFolder.map(({ folder, files }) => {
+        const albums = filesByFolder.map(({ folder, files }, i) => {
             const folderSongs = createdSongs
                 .slice(songIndex, songIndex + files.length)
                 .map((song) => song._id);
             songIndex += files.length;
 
             return {
-                title: `Álbum ${folder}`,
+                title: albumNames[i],
                 artist: "Various Artists",
-                imageUrl: `/cover-images/${folder}/cover.jpg`,
+                imageUrl: `/albums/${folder}.jpg`,
                 releaseYear: new Date().getFullYear(),
                 songs: folderSongs,
             };
